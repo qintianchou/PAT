@@ -289,6 +289,42 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					5D3BC97A209B53C400E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC985209D5B0E00E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC990209D940F00E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC99B209DA8F100E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC9A6209F3E1F00E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC9B120A0883700E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC9CF20A69F3300E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC9DA20A730CA00E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					5D3BC9E520A8376500E8F94C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					5DB3EF45209ADF5F00EF7EE5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;

@@ -1,8 +1,8 @@
 //
 //  main.cpp
-//  PTA7-1
+//  pta-0329-1
 //
-//  Created by Hao Zeng on 2018/5/2.
+//  Created by Hao Zeng on 2018/5/12.
 //  Copyright © 2018年 Droidhen. All rights reserved.
 //
 
@@ -13,53 +13,43 @@
 #include <algorithm>
 #include <queue>
 #include <string>
+#include <set>
+#include <unordered_set>
 
 using namespace std;
 
 int n = 0, e = 0;
-bool graph[10][10];
+set<int> graph[10];
 vector<int> target;
-bool flag[10];
+unordered_set<int> all;
 
 void dfs(int v);
 void bfs(int v);
-bool contains(vector<int>& vec, int value);
 void print(vector<int>& vec);
 
 int main(int argc, const char * argv[]) {
+    freopen("in.txt", "r", stdin);
     cin >> n >> e;
-    
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            graph[i][j] = false;
-        }
-    }
     
     for (int i = 0; i < e; i++) {
         int v1, v2;
         cin >> v1 >> v2;
-        graph[v1][v2] = true;
-        graph[v2][v1] = true;
+        graph[v1].insert(v2);
+        graph[v2].insert(v1);
     }
     
-    for (int i = 0; i < 10; i++) {
-        flag[i] = false;
-    }
-    
+    all.clear();
     for (int i = 0; i < n; i++) {
-        if (flag[i])
+        if (all.find(i) != all.end())
             continue;
         target.clear();
         dfs(i);
         print(target);
     }
     
-    for (int i = 0; i < 10; i++) {
-        flag[i] = false;
-    }
-    
+    all.clear();
     for (int i = 0; i < n; i++) {
-        if (flag[i])
+        if (all.find(i) != all.end())
             continue;
         target.clear();
         bfs(i);
@@ -72,10 +62,11 @@ int main(int argc, const char * argv[]) {
 void dfs(int v)
 {
     target.push_back(v);
-    flag[v] = true;
-    for (int i = 0; i < n; i++) {
-        if (graph[v][i] && !flag[i])
-            dfs(i);
+    all.insert(v);
+    for (auto it = graph[v].begin(); it != graph[v].end(); it++) {
+        if (all.find(*it) == all.end()) {
+            dfs(*it);
+        }
     }
 }
 
@@ -85,26 +76,19 @@ void bfs(int v)
     
     q.push(v);
     target.push_back(v);
-    flag[v] = true;
+    all.insert(v);
     
     while (!q.empty()) {
         int e = q.front();
         q.pop();
-        for (int i = 0; i < n; i++) {
-            if (graph[e][i] && !flag[i]) {
-                q.push(i);
-                target.push_back(i);
-                flag[i] = true;
+        for (auto it = graph[e].begin(); it != graph[e].end(); it++) {
+            if (all.find(*it) == all.end()) {
+                q.push(*it);
+                target.push_back(*it);
+                all.insert(*it);
             }
         }
     }
-}
-
-bool contains(vector<int>& vec, int value)
-{
-    vector<int>::iterator ret;
-    ret = find(vec.begin(), vec.end(), value);
-    return ret != vec.end();
 }
 
 void print(vector<int>& vec)
@@ -115,5 +99,6 @@ void print(vector<int>& vec)
     }
     cout << "}\n";
 }
+
 
 
