@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-    cout << "test\n";
+    cout << "test\n"; // abcd
     
     return 0;
 }
