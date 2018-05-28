@@ -6,14 +6,15 @@
 //  Copyright © 2018年 Droidhen. All rights reserved.
 //
 
-#include <stdio.h>
 #include <iostream>
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-
-    cout << "test\n"; // abcd
+    int a, b;
+    while (cin >> a >> b) {
+        cout << a + b << endl;
+    }
     
     return 0;
 }
